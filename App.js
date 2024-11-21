@@ -27,15 +27,16 @@ const styleCard = {
     backgroundColor: "#f0f0f0"
 }
 
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
+    console.log(props);
     return (
         <div className="res-card" style={styleCard}>
             <img className="res-logo"
             alt="res-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD5J9opcoVVoIY9PAKnQpr5HgN7PDvD6qU09Z7DqnJR0FqZFyjhcxsEMQ&s"></img>
-            <h3>Meghana Foods</h3>
-            <h4>Biriyani, North Indian</h4>
-            <h4>4.4 starts</h4>
-            <h4>38 mins</h4>
+            <h3>{props.resName}</h3>
+            <h4>{props.cuisine}</h4>
+            <h4>{props.star}</h4>
+            <h4>{props.time}</h4>
         </div>
     )
 }
@@ -46,12 +47,10 @@ const Body = () =>{
             <div className="search">Search</div>
             <div className="res-container">
                  {/* Reastaurant cards */}
-                 <RestaurantCard />
-                 <RestaurantCard />
-                 <RestaurantCard />
-                 <RestaurantCard />
-                 <RestaurantCard />
-                 <RestaurantCard />
+                 <RestaurantCard 
+                 resName="Meghana Foods" cuisine="Biriyani, Asian" star="4.4" time="38 mins" />
+                 <RestaurantCard 
+                 resName="Dominos" cuisine="Pizza, Burger" star="4.8" time="30 mins"/> 
             </div>
         </div>
     )
