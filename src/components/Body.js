@@ -39,35 +39,8 @@ import React, { useState } from "react";
 // ];
 
 const Body = () => {
-    const [listOfRestaurants, setListOfRestaurants] = useState([
-        {
-        data: {
-            id: "7890",
-            resName: "McDonals",
-            cuisine: "Burger, Fries",
-            star: "4.9",
-            time: "40 mins"
-           },
-       },
-       {
-        data: {
-            id: "1234",
-            resName: "Meghana Biriyani",
-            cuisine: "Biriyani, Asian",
-            star: "4.4",
-            time: "38 mins"
-        },
-       },
-       {
-       data: {
-            id: "5678",
-            resName: "Dominos",
-            cuisine: "Pizza, Burger",
-            star: "3.8",
-            time: "30 mins"
-        },
-      },
-    ]);
+    //using useState()
+    const [listOfRestaurants, setListOfRestaurants] = useState(resList);
     return (
         <div className="body">
             <div className="filter">
@@ -76,7 +49,7 @@ const Body = () => {
                     onClick={() => {
                         //Filter logic 
                         filteredList = listOfRestaurants.filter((res) => 
-                            res.data.star > 4
+                            res.data.star >= 4
                     );
                     setListOfRestaurants(filteredList);
                     }}
