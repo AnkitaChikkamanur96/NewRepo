@@ -1,43 +1,73 @@
 import RestaurantCard from "./RestaurantCard";
 import  resList from "./resList";
-import { useState } from "react";
+import React, { useState } from "react";
 
 
 
-let listOfRestaurants = [
-    {
-      type: "restaurant",
-   data: {
-    id: "7890",
-    resName: "McDonals",
-    cuisine: "Burger, Fries",
-    star: "4.9",
-    time: "40 mins"
-   }
-},
-{
-    type: "restaurant",
-    data: {
-        id: "1234",
-        resName: "Meghana Biriyani",
-        cuisine: "Biriyani, Asian",
-        star: "4.4",
-        time: "38 mins"
-    },
-},
-{
-    type: "restaurant",
-    data: {
-        id: "5678",
-        resName: "Dominos",
-        cuisine: "Pizza, Burger",
-        star: "3.8",
-        time: "30 mins"
-    },
-},
-];
+
+// let listOfRestaurants = [
+//     {
+//       type: "restaurant",
+//    data: {
+//     id: "7890",
+//     resName: "McDonals",
+//     cuisine: "Burger, Fries",
+//     star: "4.9",
+//     time: "40 mins"
+//    }
+// },
+// {
+//     type: "restaurant",
+//     data: {
+//         id: "1234",
+//         resName: "Meghana Biriyani",
+//         cuisine: "Biriyani, Asian",
+//         star: "4.4",
+//         time: "38 mins"
+//     },
+// },
+// {
+//     type: "restaurant",
+//     data: {
+//         id: "5678",
+//         resName: "Dominos",
+//         cuisine: "Pizza, Burger",
+//         star: "3.8",
+//         time: "30 mins"
+//     },
+// },
+// ];
 
 const Body = () => {
+    const [listOfRestaurants, setListOfRestaurants] = useState([
+        {
+        data: {
+            id: "7890",
+            resName: "McDonals",
+            cuisine: "Burger, Fries",
+            star: "4.9",
+            time: "40 mins"
+           },
+       },
+       {
+        data: {
+            id: "1234",
+            resName: "Meghana Biriyani",
+            cuisine: "Biriyani, Asian",
+            star: "4.4",
+            time: "38 mins"
+        },
+       },
+       {
+       data: {
+            id: "5678",
+            resName: "Dominos",
+            cuisine: "Pizza, Burger",
+            star: "3.8",
+            time: "30 mins"
+        },
+      },
+    ]);
     return (
         <div className="body">
             <div className="filter">
@@ -45,10 +75,10 @@ const Body = () => {
                     className="filter-btn"
                     onClick={() => {
                         //Filter logic 
-                        listOfRestaurants = listOfRestaurants.filter((res) => 
+                        filteredList = listOfRestaurants.filter((res) => 
                             res.data.star > 4
                     );
-                    console.log(listOfRestaurants);
+                    setListOfRestaurants(filteredList);
                     }}
                 >
                     Top Rated Restaurants
